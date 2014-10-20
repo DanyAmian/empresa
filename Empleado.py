@@ -11,8 +11,18 @@ class Empleado:
         self.salario=salario
 
     def getSalario(self):
-        return "El salario es: "+self.salario
+        return self.salario
     def getDni(self):
-        return "El DNI es: "+self.dni
+        return self.dni
     def getNombre(self):
         return self.nombre+" "+self.apellidos
+
+    ### EPD3
+    def get_edad(self):
+        return self.edad
+    def get_email(self):
+        return self.email
+    def get_direccion(self):
+        return self.direccion
+    def get_salario_mensual(self):
+        return self.salario
