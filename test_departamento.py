@@ -8,49 +8,58 @@ __author__ = 'aulas'
 
 
 class TestDepartamento(TestCase):
-    def test_getSalarioTotal(self):
+    def test_get_salario_total(self):
         # Generate a mock from a class
+        acumulado = 0
         emp1 = mock(Empleado)
         emp2 = mock(Empleado)
         emp3 = mock(Empleado)
-        dept = Departamento("Calidad",1)
+        dept1 = Departamento("Calidad", 1)
         # Mock method calls
-        when(emp1).getSalario().thenReturn(1000)
-        when(emp2).getSalario().thenReturn(2000)
-        when(emp3).getSalario().thenReturn(3000)
+        when(emp1).get_salario().thenReturn(28000)
+        acumulado += 28000
+        when(emp2).get_salario().thenReturn(28000)
+        acumulado += 28000
+        when(emp3).get_salario().thenReturn(28000)
+        acumulado += 28000
 
-        dept.aniadirEmpleado(emp1)
-        dept.aniadirEmpleado(emp2)
-        dept.aniadirEmpleado(emp3)
+        dept1.aniadir_empleado(emp1)
+        dept1.aniadir_empleado(emp2)
+        dept1.aniadir_empleado(emp3)
 
-        res=dept.getSalarioTotal()
+        res = dept1.get_salario_total()
         print("TEST EPD2")
-        print("Salario emp1: "+str(emp1.getSalario()))
-        print("Salario emp2: "+str(emp2.getSalario()))
-        print("Salario emp3: "+str(emp3.getSalario()))
-        print("Salario total devuelto por getSalarioTotal(): "+str(res))
-        self.assertEquals(res,6000)
+        print("Salario emp1: " + str(emp1.get_salario()))
+        print("Salario emp2: " + str(emp2.get_salario()))
+        print("Salario emp3: " + str(emp3.get_salario()))
+        print("Salario total devuelto por getsalariototal(): " + str(res))
+        self.assertEquals(res, acumulado)
 
-        #EPD3
+        # EPD3
+
     def test_get_salario_total_mensual(self):
         # Generate a mock from a class
-        emp1 = mock(Empleado)
-        emp2 = mock(Empleado)
-        emp3 = mock(Empleado)
-        dept = Departamento("Calidad",2)
+        acumulado2 = 0
+        emp4 = mock(Empleado)
+        emp5 = mock(Empleado)
+        emp6 = mock(Empleado)
+        dept2 = Departamento("Calidad 2", 4)
         # Mock method calls
-        when(emp1).get_salario_mensual().thenReturn(1000)
-        when(emp2).get_salario_mensual().thenReturn(2000)
-        when(emp3).get_salario_mensual().thenReturn(3000)
+        when(emp4).get_salario_mensual().thenReturn(2000)
+        acumulado2 += 2000
+        when(emp5).get_salario_mensual().thenReturn(2000)
+        acumulado2 += 2000
+        when(emp6).get_salario_mensual().thenReturn(2000)
+        acumulado2 += 2000
 
-        dept.aniadirEmpleado(emp1)
-        dept.aniadirEmpleado(emp2)
-        dept.aniadirEmpleado(emp3)
+        dept2.aniadir_empleado(emp4)
+        dept2.aniadir_empleado(emp5)
+        dept2.aniadir_empleado(emp6)
 
-        res=dept.get_salario_total_mensual()
+        res = dept2.get_salario_total_mensual()
         print("TEST EPD3")
-        print("Salario emp1: "+str(emp1.get_salario_mensual()))
-        print("Salario emp2: "+str(emp2.get_salario_mensual()))
-        print("Salario emp3: "+str(emp3.get_salario_mensual()))
-        print("Salario total devuelto por get_salario_total_mensual(): "+str(res))
-        self.assertEquals(res,6000)
+        print("Salario mensual emp4: " + str(emp4.get_salario_mensual()))
+        print("Salario mensual emp5: " + str(emp5.get_salario_mensual()))
+        print("Salario mensual emp6: " + str(emp6.get_salario_mensual()))
+        print("Salario total devuelto por get_salario_total_mensual(): " + str(res))
+        self.assertEquals(res, acumulado2)
