@@ -8,7 +8,21 @@ __author__ = 'aulas'
 
 
 class TestDepartamento(TestCase):
+    """
+       Esta es la clase test_Departamento, utilizada para comprobar ciertos metodos de la clase Departamento
+
+       Los departamentos tienen ciertos metodos que deben ser comprobados
+
+    """
     def test_get_salario_total(self):
+        """Este metodo comprobara que el metodo get_salario_total realiza la funcion de obtener
+        todos los salarios acumulados de forma correcta.
+        Se han utilizado objetos mocks para simular objetos reales, para facilitar la comprobacion.
+        Para no comprar con dos objetos simulados, he creado una variable acumulador y conforme
+        se crean los mocks se va incrementando. Esta variable la comparo con el total devuelto por el metodo.
+
+        :return: No devuelve nada
+        """
         # Generate a mock from a class
         acumulado = 0
         emp1 = mock(Empleado)
@@ -38,6 +52,14 @@ class TestDepartamento(TestCase):
         # EPD3
 
     def test_get_salario_total_mensual(self):
+        """Este metodo comprobara que el metodo get_salario_total_mensual realiza la funcion de obtener
+        todos los salarios mensuales acumulados de forma correcta.
+        Se han utilizado objetos mocks para simular objetos reales, para facilitar la comprobacion.
+        Para no comprar con dos objetos simulados, he creado una variable acumulador y conforme
+        se crean los mocks se va incrementando. Esta variable la comparo con el total devuelto por el metodo.
+
+        :return: No devuelve nada
+        """
         # Generate a mock from a class
         acumulado2 = 0
         emp4 = mock(Empleado)
